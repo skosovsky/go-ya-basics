@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 type Weekday int
 
@@ -15,11 +17,11 @@ const (
 )
 
 func NextDay(day Weekday) Weekday {
-	return (day % 7) + 1
+	return (day % 7) + 1 //nolint:mnd // example
 }
 
 func main() {
-	var today Weekday = Sunday
+	var today = Sunday
 	tomorrow := NextDay(today)
-	fmt.Println("today =", today, "tomorrow =", tomorrow)
+	log.Println("today =", today, "tomorrow =", tomorrow)
 }

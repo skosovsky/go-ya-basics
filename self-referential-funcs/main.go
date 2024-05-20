@@ -4,22 +4,26 @@ type Foo struct {
 	verbosity int
 }
 
-type option func(*Foo) option
+type Option func(*Foo) Option
 
 // Option sets the options specified.
 // It returns the previous value of the last argument.
-func (f *Foo) Option(opts ...option) (previous option) {
+func (f *Foo) Option(opts ...Option) Option {
+	var previous Option
+
 	for _, opt := range opts {
 		previous = opt(f)
 	}
+
 	return previous
 }
 
 // Verbosity sets Foo's verbosity level to v.
-func Verbosity(v int) option {
-	return func(f *Foo) option {
+func Verbosity(v int) Option {
+	return func(f *Foo) Option {
 		previous := f.verbosity
 		f.verbosity = v
+
 		return Verbosity(previous)
 	}
 }

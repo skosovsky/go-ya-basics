@@ -16,18 +16,19 @@ type Response struct {
 		ID         int    `json:"id"`
 		Attributes struct {
 			Email      string `json:"email"`
-			ArticleIDs []int  `json:"article_ids"`
+			ArticleIDs []int  `json:"articleIDs"`
 		} `json:"attributes"`
 	} `json:"data"`
 }
 
 func ReadResponse(rawResp string) (Response, error) {
-	resp := Response{}
+	var resp Response
 
 	err := json.Unmarshal([]byte(rawResp), &resp)
 	if err != nil {
 		err = fmt.Errorf("unmarshal error %w", err)
 		log.Println(err)
+
 		return Response{}, err
 	}
 
@@ -54,5 +55,5 @@ func main() {
 	if err != nil {
 		log.Println(err)
 	}
-	fmt.Println(response) //nolint:forbidigo // it's learning code
+	fmt.Println(response) //nolint:forbidigo // example
 }

@@ -2,21 +2,21 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"time"
 )
 
 type Person struct {
-	Name        string    `json:"Имя"`
-	Email       string    `json:"Почта"`
+	Name        string    `json:"имя"`
+	Email       string    `json:"почта"`
 	DateOfBirth time.Time `json:"-"`
 }
 
 func main() {
 	alex := Person{
-		Name:  "Alex",
-		Email: "alex@yandex.ru",
+		Name:        "Alex",
+		Email:       "alex@yandex.ru",
+		DateOfBirth: time.Time{},
 	}
 
 	jsonData, err := json.Marshal(alex)
@@ -24,5 +24,5 @@ func main() {
 		log.Println(err)
 	}
 
-	fmt.Printf("Man %v", string(jsonData)) //nolint:forbidigo // it's learning code
+	log.Printf("Man %v", string(jsonData))
 }

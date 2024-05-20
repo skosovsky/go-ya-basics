@@ -12,7 +12,7 @@ func main() {
 		"cat",
 	}
 
-	fmt.Println(removeDuplicates(input)) //nolint:forbidigo // it's learning code
+	fmt.Println(removeDuplicates(input)) //nolint:forbidigo // example
 }
 
 func removeDuplicates(input []string) []string {

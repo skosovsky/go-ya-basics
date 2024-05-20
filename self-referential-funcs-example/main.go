@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 type Item struct {
 	NoOption   string
@@ -8,42 +10,43 @@ type Item struct {
 	Parameter2 int
 }
 
-type option func(*Item)
+type Option func(*Item)
 
-func Option1(option1 string) option {
+func Option1(option1 string) Option {
 	return func(i *Item) {
 		i.Parameter1 = option1
 	}
 }
-func Option2(option2 int) option {
+func Option2(option2 int) Option {
 	return func(i *Item) {
 		i.Parameter2 = option2
 	}
 }
 
-func NewItem(opts ...option) *Item {
+func NewItem(opts ...Option) *Item {
 	// инициализируем типовыми значениями
-	i := &Item{
+	item := &Item{
 		NoOption:   "usual",
 		Parameter1: "default",
-		Parameter2: 42,
+		Parameter2: 42, //nolint:mnd // example
 	}
 	// применяем опции в том порядке, в котором они были заявлены
 	for _, opt := range opts {
-		opt(i)
+		opt(item)
 	}
-	return i
+
+	return item
 }
 
 func main() {
 	// с параметрами по умолчанию
 	item1 := NewItem()
 	// с применением одной опции
-	item2 := NewItem(Option2(70))
+	item2 := NewItem(Option2(70)) //nolint:mnd // example
 	// или двух
-	item3 := NewItem(Option1("unusual"), Option2(99))
+	item3 := NewItem(Option1("unusual"), Option2(99)) //nolint:mnd // example
 	// опции можно заявлять в разном порядке
-	item4 := NewItem(Option2(88), Option1("rare"))
+	item4 := NewItem(Option2(88), Option1("rare")) //nolint:mnd // example
 
-	fmt.Println(item1, item2, item3, item4)
+	log.Println(item1, item2, item3, item4)
 }

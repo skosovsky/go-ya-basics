@@ -1,12 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 func main() {
 	nums := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 	k := 7
 
-	fmt.Println(findPairs(nums, k))
+	log.Println(findPairs(nums, k))
 }
 
 func findPairs(nums []int, k int) [][]int {

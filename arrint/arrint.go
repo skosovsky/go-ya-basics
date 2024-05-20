@@ -15,9 +15,10 @@ func Add(aNum, bNum ArrInt) ArrInt {
 		length = len(bNum)
 	}
 	cNUm := make(ArrInt, length)
-	for i := 0; i < length; i++ {
+	for i := range length {
 		cNUm[i] = aNum[i] + bNum[i]
 	}
+
 	return cNUm
 }
 
@@ -28,5 +29,6 @@ func (a ArrInt) String() string {
 	for i, v := range a {
 		out[i] = fmt.Sprintf(`<%d>`, v)
 	}
+
 	return fmt.Sprintf(`[%s]`, strings.Join(out, ` `))
 }

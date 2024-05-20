@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 const (
 	one = 2*iota + 1
@@ -12,5 +14,5 @@ const (
 )
 
 func main() {
-	fmt.Println(one, three, five, seven, nine, eleven)
+	log.Println(one, three, five, seven, nine, eleven)
 }

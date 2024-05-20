@@ -2,18 +2,18 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	"log"
 	"os"
 )
 
 func main() {
 	// Получаем читателя пользовательского ввода
 	reader := bufio.NewReader(os.Stdin)
-	fmt.Println("Interaction counter")
+	log.Println("Interaction counter")
 
 	cnt := 0
 	for {
-		fmt.Print("-> ")
+		log.Print("-> ")
 		// Считываем введённую пользователем строку. Программа ждёт, пока пользователь введёт строку
 		_, err := reader.ReadString('\n')
 		if err != nil {
@@ -22,7 +22,7 @@ func main() {
 
 		f(&cnt)
 
-		fmt.Printf("User input %d lines\n", cnt)
+		log.Printf("User input %d lines\n", cnt)
 	}
 }
 

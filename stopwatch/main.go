@@ -20,13 +20,13 @@ func main() {
 	time.Sleep(1 * time.Second)
 	swatch.SaveSplit()
 
-	time.Sleep(500 * time.Millisecond) //nolint:gomnd // it's learning code
+	time.Sleep(500 * time.Millisecond) //nolint:mnd // example
 	swatch.SaveSplit()
 
-	time.Sleep(300 * time.Millisecond) //nolint:gomnd // it's learning code
+	time.Sleep(300 * time.Millisecond) //nolint:mnd // example
 	swatch.SaveSplit()
 
-	fmt.Println(swatch.GetResults()) //nolint:forbidigo // it's learning code
+	fmt.Println(swatch.GetResults()) //nolint:forbidigo // example
 }
 
 func (s *Stopwatch) Start() {

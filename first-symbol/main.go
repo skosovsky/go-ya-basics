@@ -1,7 +1,9 @@
 package main
 
+import "log"
+
 func main() {
 	str := "Hello, world!"
 
-	println(string(str[0]))
+	log.Println(string(str[0]))
 }

@@ -11,18 +11,21 @@ func main() {
 //go:noinline
 func stackIt() int {
 	y := 2
-	return y * 2
+
+	return y * 2 //nolint:mnd // example
 }
 
 //go:noinline
 func stackIt2() *int {
 	y := 2
-	res := y * 2
+	res := y * 2 //nolint:mnd // example
+
 	return &res
 }
 
 //go:noinline
 func stackIt3(y *int) int {
-	res := *y * 2
+	res := *y * 2 //nolint:mnd // example
+
 	return res
 }

@@ -1,37 +1,40 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 func main() {
 	productsPrice := map[string]int{
-		"хлеб":     50,   //nolint:gomnd // it's learning code
-		"молоко":   100,  //nolint:gomnd // it's learning code
-		"масло":    200,  //nolint:gomnd // it's learning code
-		"колбаса":  500,  //nolint:gomnd // it's learning code
-		"соль":     20,   //nolint:gomnd // it's learning code
-		"огурцы":   200,  //nolint:gomnd // it's learning code
-		"сыр":      600,  //nolint:gomnd // it's learning code
-		"ветчина":  700,  //nolint:gomnd // it's learning code
-		"буженина": 900,  //nolint:gomnd // it's learning code
-		"помидоры": 250,  //nolint:gomnd // it's learning code
-		"рыба":     300,  //nolint:gomnd // it's learning code
-		"хамон":    1500, //nolint:gomnd // it's learning code
+		"хлеб":     50,   //nolint:mnd // example
+		"молоко":   100,  //nolint:mnd // example
+		"масло":    200,  //nolint:mnd // example
+		"колбаса":  500,  //nolint:mnd // example
+		"соль":     20,   //nolint:mnd // example
+		"огурцы":   200,  //nolint:mnd // example
+		"сыр":      600,  //nolint:mnd // example
+		"ветчина":  700,  //nolint:mnd // example
+		"буженина": 900,  //nolint:mnd // example
+		"помидоры": 250,  //nolint:mnd // example
+		"рыба":     300,  //nolint:mnd // example
+		"хамон":    1500, //nolint:mnd // example
 	}
 
 	order := []string{"хлеб", "буженина", "сыр", "огурцы"}
 
-	findPricesOver(productsPrice, 500) //nolint:gomnd // it's learning code
+	findPricesOver(productsPrice, 500) //nolint:mnd // example
 	calculateCostOrder(productsPrice, order)
 }
 
 func findPricesOver(productsPrice map[string]int, priceOver int) {
-	fmt.Println("Перечень деликатесов:") //nolint:forbidigo // it's learning code
+	log.Println("Перечень деликатесов:")
 	for product, price := range productsPrice {
 		if price >= priceOver {
-			fmt.Println("-", product) //nolint:forbidigo // it's learning code
+			fmt.Println("-", product) //nolint:forbidigo // example
 		}
 	}
-	fmt.Println()
+	log.Println()
 }
 
 func calculateCostOrder(productsPrice map[string]int, productsList []string) {
@@ -39,5 +42,5 @@ func calculateCostOrder(productsPrice map[string]int, productsList []string) {
 	for _, product := range productsList {
 		sum += productsPrice[product]
 	}
-	fmt.Println("Стоимость заказа", sum) //nolint:forbidigo // it's learning code
+	log.Println("Стоимость заказа", sum)
 }

@@ -21,11 +21,11 @@ func area(figure figures) (func(float64) float64, bool) {
 		}, true
 	case circle:
 		return func(radius float64) float64 {
-			return math.Pi * math.Pow(radius, 2) //nolint:gomnd // it's learning code
+			return math.Pi * math.Pow(radius, 2) //nolint:mnd // example
 		}, true
 	case triangle:
 		return func(side float64) float64 {
-			return math.Pow(side, 2) * math.Sqrt(3) / 4 //nolint:gomnd // it's learning code
+			return math.Pow(side, 2) * math.Sqrt(3) / 4 //nolint:mnd // example
 		}, true
 	default:
 		return nil, false
@@ -37,10 +37,11 @@ func main() {
 
 	newArea, ok := area(myFigure)
 	if !ok {
-		fmt.Println("Ошибка") //nolint:forbidigo // it's learning code
+		fmt.Println("Ошибка") //nolint:forbidigo // example
+
 		return
 	}
 
-	myArea := newArea(10) //nolint:gomnd // it's learning code
-	fmt.Println(myArea)   //nolint:forbidigo // it's learning code
+	myArea := newArea(10) //nolint:mnd // example
+	fmt.Println(myArea)   //nolint:forbidigo // example
 }

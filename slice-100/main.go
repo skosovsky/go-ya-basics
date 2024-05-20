@@ -1,9 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 func main() {
-	slc := make([]int, 0, 100)
+	slc := make([]int, 0, 100) //nolint:mnd // example
 
 	for i := 1; i <= 100; i++ {
 		slc = append(slc, i)
@@ -12,9 +14,9 @@ func main() {
 	slc = append(slc[0:10], slc[90:]...)
 	n := len(slc)
 
-	for i := 0; i < n/2; i++ {
+	for i := range n / 2 {
 		slc[i], slc[n-i-1] = slc[n-i-1], slc[i]
 	}
 
-	fmt.Println(slc)
+	log.Println(slc)
 }
